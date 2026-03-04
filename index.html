@@ -186,6 +186,18 @@
       transform: scale(1.02);
     }
 
+    .gallery-item {
+display: flex;
+flex-direction: column;
+}
+
+.caption {
+margin-top: 0.5rem;
+font-size: 0.9rem;
+text-align: center;
+color: #ccc;
+}
+
     footer {
       padding: 2rem 1.5rem;
       text-align: center;
@@ -280,8 +292,10 @@
   <section id="galerie">
     <h2>Galerie</h2>
     <p>Fotos und Videos unsres Cansat und unserer Prototypen.</p>
-    <div class="gallery">
-      <p align="center"> <img src="images/Transformation.gif" alt="Chimera II Rendering" width="500"><br> CAD Modell </p>
+    <div class="gallery"> 
+      <div class="gallery-item"> 
+        <img src="images/Transformation.gif" alt="Chimera II Rendering"> <p class="caption">CAD Modell</p>
+      </div>
     </div>
   </section>
 

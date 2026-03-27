@@ -23,12 +23,15 @@ body {
     background-color: #1d1d1d; /* Dunkler Hintergrund */
 }
 
-/* Countdown Container */
+/* Container für den Countdown */
 #countdown-container {
     background-color: #f0f0f0;
     padding: 50px;
     border-radius: 10px;
-    display: inline-block;
+    display: flex;
+    flex-direction: column; /* Elemente untereinander anordnen */
+    align-items: center; /* Horizontale Zentrierung der inneren Elemente */
+    justify-content: center; /* Vertikale Zentrierung der inneren Elemente */
 }
 
 /* Countdown Text */

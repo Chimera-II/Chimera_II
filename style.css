@@ -1,3 +1,16 @@
+/* Member Image Styling */
+.member-img {
+    width: 100px;
+    height: 100px;
+    object-fit: cover;
+    border-radius: 50%;
+    border: 2px solid var(--accent); /* Wenn du eine Variable für Farbe verwendest */
+    margin-bottom: 1rem;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
 /* Gesamtes Layout zentrieren */
 body {
     font-family: Arial, sans-serif;

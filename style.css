@@ -1,24 +1,3 @@
-    .member-img {width: 100px;
-      height: 100px;
-      object-fit: cover;
-      border-radius: 50%;
-      border: 2px solid var(--accent);
-      margin-bottom: 1rem;
-      display: block;
-      margin-left: auto;
-      margin-right: auto;
-/* Gesamtes Layout zentrieren */
-body {
-    font-family: Arial, sans-serif;
-    text-align: center;
-    height: 100vh; /* Volle Höhe des Viewports */
-    display: flex;
-    justify-content: center; /* Horizontal zentrieren */
-    align-items: center; /* Vertikal zentrieren */
-    margin: 0;
-    background-color: #1d1d1d; /* Hintergrundfarbe für besseres Aussehen */
-}
-
 /* Gesamtes Layout zentrieren */
 body {
     font-family: Arial, sans-serif;

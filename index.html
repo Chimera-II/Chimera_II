@@ -231,6 +231,54 @@ text-align: center;
     <h1>Countdown</h1>
     <div id="countdown"></div>
 </div>
+  <!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Countdown</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Countdown Bereich -->
+    <div id="countdown-container">
+        <h1>Countdown</h1>
+        <div id="countdown"></div>
+    </div>
+
+    <!-- Das Script für den Countdown -->
+    <script>
+        // Setze das Ziel-Datum für den Countdown
+        var countDownDate = new Date("Apr 9, 2026 09:45:00").getTime();
+
+        // Update jede Sekunde
+        var x = setInterval(function() {
+
+            // Hole das aktuelle Datum und die Zeit
+            var now = new Date().getTime();
+            
+            // Berechne die Differenz zwischen dem Ziel-Datum und dem jetzigen Zeitpunkt
+            var distance = countDownDate - now;
+
+            // Berechne die Tage, Stunden, Minuten und Sekunden
+            var days = Math.floor(distance / (1000 * 60 * 60 * 24));
+            var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+            var seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+            // Zeige das Ergebnis auf der Webseite an
+            document.getElementById("countdown").innerHTML = days + "T " + hours + "h " + minutes + "m " + seconds + "s ";
+
+            // Wenn der Countdown abgelaufen ist, zeige eine Nachricht an
+            if (distance < 0) {
+                clearInterval(x);
+                document.getElementById("countdown").innerHTML = "EXPIRED";
+            }
+        }, 1000);
+    </script>
+
+</body>
+</html>
 
   <section id="projekt">
     <h2>Projektübersicht</h2>

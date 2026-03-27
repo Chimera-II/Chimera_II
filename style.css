@@ -19,6 +19,18 @@ body {
     background-color: #1d1d1d; /* Hintergrundfarbe für besseres Aussehen */
 }
 
+/* Gesamtes Layout zentrieren */
+body {
+    font-family: Arial, sans-serif;
+    text-align: center;
+    height: 100vh; /* Volle Höhe des Viewports */
+    display: flex;
+    justify-content: center; /* Horizontal zentrieren */
+    align-items: center; /* Vertikal zentrieren */
+    margin: 0;
+    background-color: #1d1d1d; /* Dunkler Hintergrund */
+}
+
 /* Countdown Container */
 #countdown-container {
     background-color: #f0f0f0;
@@ -40,4 +52,5 @@ h1 {
     font-size: 2.5em;
     font-weight: bold;
     color: #fff;
+    margin: 0;
 }

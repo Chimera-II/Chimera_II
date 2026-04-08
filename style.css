@@ -1,132 +1,316 @@
-/* =========================
-   🌌 SPACE BACKGROUND LAYER
-   ========================= */
-
-body {
-  background: radial-gradient(circle at top, #0b0f14, #05070a);
-  overflow-x: hidden;
+section {
+  max-width: 1100px;
+  margin: 0 auto;
 }
 
-/* moving starfield */
-body::before {
-  content: "";
-  position: fixed;
-  inset: 0;
-  background:
-    radial-gradient(2px 2px at 20px 30px, #ffffff, transparent),
-    radial-gradient(1px 1px at 100px 80px, rgba(79,163,255,0.8), transparent),
-    radial-gradient(1px 1px at 200px 150px, rgba(255,255,255,0.6), transparent);
-  background-size: 300px 300px;
-  animation: starsMove 120s linear infinite;
-  opacity: 0.4;
-  z-index: -1;
-}
+.member-img {
+  width: 170px;
+  height: 170px;
+  object-fit: cover;
+  object-position: center top;
+  border-radius: 50%;
 
-@keyframes starsMove {
-  from { transform: translateY(0); }
-  to { transform: translateY(-1200px); }
-}
+  border: 2px solid rgba(79, 163, 255, 0.8);
 
-/* soft glow overlay */
-body::after {
-  content: "";
-  position: fixed;
-  inset: 0;
-  background: radial-gradient(circle at 50% 0%, rgba(79,163,255,0.12), transparent 60%);
-  z-index: -1;
-}
+  box-shadow:
+    0 0 25px rgba(79, 163, 255, 0.3),
+    0 0 60px rgba(79, 163, 255, 0.1);
 
-/* =========================
-   🚀 HEADER FUTURISTIC GLOW
-   ========================= */
-
-header {
-  position: relative;
-  text-shadow: 0 0 20px rgba(79,163,255,0.3);
-}
-
-/* animated underline glow */
-header h1::after {
-  content: "";
+  margin: 0 auto 1.5rem;
   display: block;
-  width: 120px;
-  height: 2px;
-  margin: 10px auto 0;
-  background: linear-gradient(90deg, transparent, #4fa3ff, transparent);
-  animation: lineGlow 3s infinite;
+
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
-@keyframes lineGlow {
-  0% { transform: scaleX(0.5); opacity: 0.3; }
-  50% { transform: scaleX(1); opacity: 1; }
-  100% { transform: scaleX(0.5); opacity: 0.3; }
+.member-img:hover {
+  transform: scale(1.08);
+  box-shadow:
+    0 0 35px rgba(79, 163, 255, 0.5);
 }
 
-/* =========================
-   🚀 NAV HUD STYLE
-   ========================= */
-
-nav {
-  border-bottom: 1px solid rgba(79,163,255,0.2);
+.card-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 1.8rem;
+  margin-top: 2rem;
 }
 
-nav a {
+/* TECH PANEL CARD */
+.card {
   position: relative;
-  padding: 0.3rem 0.6rem;
+  background: linear-gradient(
+    145deg,
+    rgba(18, 24, 36, 0.85),
+    rgba(11, 15, 20, 0.6)
+  );
+
+  border: 1px solid rgba(79, 163, 255, 0.25);
+  border-radius: 16px;
+  padding: 2rem;
+
+  backdrop-filter: blur(12px);
+
+  text-align: center;
+
+  box-shadow:
+    0 0 18px rgba(79, 163, 255, 0.08),
+    inset 0 0 12px rgba(255, 255, 255, 0.03);
+
+  transition: all 0.3s ease;
+
+  overflow: hidden;
 }
 
-nav a::after {
+/* animated HUD frame */
+.card::before {
   content: "";
   position: absolute;
-  left: 0;
-  bottom: -4px;
-  width: 100%;
-  height: 1px;
-  background: #4fa3ff;
-  transform: scaleX(0);
-  transition: 0.3s;
+  inset: 0;
+  border-radius: 16px;
+  background: linear-gradient(120deg, transparent, rgba(79, 163, 255, 0.4), transparent);
+  opacity: 0.15;
+  transform: translateX(-100%);
+  animation: panelScan 6s linear infinite;
 }
 
-nav a:hover::after {
-  transform: scaleX(1);
+@keyframes panelScan {
+  0% { transform: translateX(-100%); }
+  100% { transform: translateX(100%); }
 }
 
-/* =========================
-   🚀 SECTION FLOAT EFFECT
-   ========================= */
+.card:hover {
+  transform: translateY(-10px) scale(1.03);
+  box-shadow:
+    0 0 40px rgba(79, 163, 255, 0.25),
+    inset 0 0 15px rgba(79, 163, 255, 0.08);
+}
 
-section {
+/* Gesamtes Layout zentrieren */
+body {
+  font-family: Arial, sans-serif;
+  text-align: center;
+  height: 100vh;
+  margin: 0;
+  background-color: #1d1d1d;
+}
+
+#countdown-section {
+  text-align: center;
+}
+
+#countdown {
+  font-size: 2rem;
+  font-weight: bold;
+  margin-top: 1rem;
+}
+
+.countdown-wrapper {
+  display: flex;
+  justify-content: center;
+  gap: 1.5rem;
+  margin-top: 2.5rem;
+  flex-wrap: wrap;
+}
+
+/* SPACE HUD PANEL */
+.time-box {
   position: relative;
-  animation: floatIn 0.8s ease-out;
+  background: radial-gradient(circle at top, rgba(79, 163, 255, 0.12), rgba(18, 24, 36, 0.7));
+  border: 1px solid rgba(79, 163, 255, 0.35);
+  border-radius: 14px;
+  padding: 1.6rem 2rem;
+  min-width: 120px;
+  text-align: center;
+
+  backdrop-filter: blur(14px);
+
+  box-shadow:
+    0 0 25px rgba(79, 163, 255, 0.12),
+    inset 0 0 15px rgba(79, 163, 255, 0.08);
+
+  overflow: hidden;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
-@keyframes floatIn {
-  from {
-    opacity: 0;
-    transform: translateY(20px);
-  }
+/* scanning HUD line */
+.time-box::before {
+  content: "";
+  position: absolute;
+  top: -60%;
+  left: -60%;
+  width: 220%;
+  height: 220%;
+  background: linear-gradient(
+    120deg,
+    transparent,
+    rgba(79, 163, 255, 0.18),
+    transparent
+  );
+  transform: rotate(25deg);
+  animation: scanline 5s linear infinite;
+}
+
+@keyframes scanline {
+  0% { transform: translateX(-60%) rotate(25deg); }
+  100% { transform: translateX(60%) rotate(25deg); }
+}
+
+/* NUMBER DISPLAY (SPACE STYLE) */
+.time-box span {
+  display: block;
+  font-size: 3rem;
+  font-weight: 700;
+  color: #4fa3ff;
+  text-shadow:
+    0 0 12px rgba(79, 163, 255, 0.6),
+    0 0 30px rgba(79, 163, 255, 0.25);
+}
+
+/* LABEL */
+.time-box p {
+  margin-top: 0.6rem;
+  font-size: 0.8rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: #9aa4b2;
+}
+
+.time-box:hover {
+  transform: translateY(-6px) scale(1.03);
+  box-shadow:
+    0 0 35px rgba(79, 163, 255, 0.25),
+    inset 0 0 18px rgba(79, 163, 255, 0.1);
+}
+
+/* H1-Styling */
+h1 {
+  font-size: 2.5em;
+  font-weight: bold;
+  color: #fff;
+}
+
+/* Team Sektion */
+.team-section {
+  padding: 4rem 1.5rem;
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+.team-members {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 2rem;
+  margin-top: 2rem;
+}
+
+.team-member-card {
+  background: var(--bg-secondary);
+  border: 1px solid #1f2a44;
+  border-radius: 12px;
+  padding: 1.5rem;
+  text-align: center;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.5);
+  transition: transform 0.3s ease;
+  flex: 1 1 300px; /* Ermöglicht, dass Karten bis zu 300px breit sind und sich anpassen */
+  max-width: 300px;
+}
+
+.team-member-card:hover {
+  transform: translateY(-5px);
+}
+
+.member-img {
+  width: 120px; /* Etwas größer für Teamfotos */
+  height: 120px;
+  object-fit: cover;
+  border-radius: 50%;
+  border: 3px solid var(--accent); /* Betonterer Rand */
+  margin-bottom: 1rem;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.team-member-card h3 {
+  color: var(--text-main);
+  margin-bottom: 0.5rem;
+  font-size: 1.25rem;
+}
+
+.team-member-card p {
+  color: var(--text-muted);
+  font-size: 0.9rem;
+}
+
+/* Anpassungen für Bilder in der Galerie (falls vorhanden) */
+.gallery-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 1.5rem;
+  margin-top: 2rem;
+}
+
+.gallery-item {
+  background: var(--bg-secondary);
+  border: 1px solid #1f2a44;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.4);
+  transition: transform 0.3s ease;
+}
+
+.gallery-item:hover {
+  transform: translateY(-5px);
+}
+
+.gallery-item img {
+  width: 100%;
+  height: 200px; /* Einheitliche Höhe für Galeriebilder */
+  object-fit: cover;
+  display: block;
+}
+
+.gallery-item div {
+  padding: 1rem;
+  text-align: left;
+}
+
+.gallery-item h4 {
+  color: var(--text-main);
+  margin-bottom: 0.5rem;
+  font-size: 1.1rem;
+}
+
+.gallery-item p {
+  color: var(--text-muted);
+  font-size: 0.85rem;
+}
+
+.gallery-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  opacity: 0;
+  transform: translateY(20px);
+  animation: fadeUp 0.8s ease forwards;
+}
+
+/* leichte Verzögerung für Effekt */
+.gallery-item:nth-child(1) {
+  animation-delay: 0.2s;
+}
+
+@keyframes fadeUp {
   to {
     opacity: 1;
     transform: translateY(0);
   }
 }
 
-/* =========================
-   🚀 GLOBAL GLOW TEXT
-   ========================= */
-
-h1, h2 {
-  letter-spacing: 0.05em;
-}
-
-h2 {
-  text-shadow: 0 0 10px rgba(79,163,255,0.2);
-}
-
-/* =========================
-   🚀 BUTTON / LINK FEEL (optional future proof)
-   ========================= */
-
-a {
-  transition: 0.3s ease;
+.gallery img:hover {
+  filter: brightness(1.1);
+  transform: scale(1.03);
+  box-shadow: 0 10px 25px rgba(79, 163, 255, 0.3);
 }

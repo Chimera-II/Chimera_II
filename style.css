@@ -24,21 +24,14 @@ body {
   background-color: #1d1d1d;
 }
 
-/* Countdown Container */
-#countdown-container {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
+#countdown-section {
   text-align: center;
-  margin: 50px auto;
 }
-/* Countdown Text */
+
 #countdown {
-  font-size: 2em;
+  font-size: 2rem;
   font-weight: bold;
-  margin-top: 20px;
-  color: #333;
+  margin-top: 1rem;
 }
 
 /* H1-Styling */

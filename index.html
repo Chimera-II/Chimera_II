@@ -5,218 +5,24 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Chimera_II | Countdown</title>
 
-  <style>
-    :root {
-      --bg-main: #0b0f14;
-      --bg-secondary: #121824;
-      --accent: #4fa3ff;
-      --text-main: #e6eaf0;
-      --text-muted: #9aa4b2;
-    }
-
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-    }
-
-    body {
-      font-family: "Segoe UI", Roboto, Arial, sans-serif;
-      background: linear-gradient(180deg, var(--bg-main), #05070a);
-      color: var(--text-main);
-      line-height: 1.6;
-    }
-
-    header {
-      padding: 3rem 1.5rem;
-      text-align: center;
-      background: radial-gradient(circle at top, #162033, var(--bg-main));
-      border-bottom: 1px solid #1f2a44;
-    }
-
-    nav {
-      display: flex;
-      justify-content: center;
-      gap: 2rem;
-      padding: 1rem;
-      background-color: rgba(18, 24, 36, 0.9);
-      position: sticky;
-      top: 0;
-    }
-
-    nav a {
-      color: var(--text-main);
-      text-decoration: none;
-    }
-
-    section {
-      padding: 4rem 1.5rem;
-      max-width: 1100px;
-      margin: 0 auto;
-      text-align: center;
-    }
-
-    h2 {
-      margin-bottom: 1rem;
-      border-left: 4px solid var(--accent);
-      padding-left: 1rem;
-      text-align: left;
-    }
-
-    /* ===================== */
-    /* COUNTDOWN (unverändert) */
-    /* ===================== */
-
-    .countdown-wrapper {
-      display: flex;
-      justify-content: center;
-      gap: 2rem;
-      margin-top: 2rem;
-      flex-wrap: wrap;
-    }
-
-    .time-box {
-      background: var(--bg-secondary);
-      border: 1px solid #1f2a44;
-      border-radius: 12px;
-      padding: 1.5rem 2rem;
-      min-width: 100px;
-      text-align: center;
-      box-shadow: 0 10px 25px rgba(0,0,0,0.5);
-      transition: transform 0.3s ease;
-    }
-
-    .time-box:hover {
-      transform: translateY(-5px);
-    }
-
-    .time-box span {
-      display: block;
-      font-size: 2.5rem;
-      font-weight: bold;
-      color: var(--accent);
-    }
-
-    .time-box p {
-      margin-top: 0.5rem;
-      color: var(--text-muted);
-      font-size: 0.9rem;
-      letter-spacing: 0.05em;
-    }
-
-    /* ===================== */
-    /* TEAM (aus Index 2) */
-    /* ===================== */
-
-    .card-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-      gap: 1.5rem;
-      margin-top: 2rem;
-    }
-
-    .card {
-      background: var(--bg-secondary);
-      padding: 1.5rem;
-      border-radius: 12px;
-      border: 1px solid #1f2a44;
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
-      text-align: center;
-    }
-
-    .card:hover {
-      transform: translateY(-6px);
-      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.6);
-    }
-
-    .member-img {
-      width: 180px;
-      height: 180px;
-      object-fit: cover;
-      object-position: center top;
-      border-radius: 50%;
-      border: 3px solid var(--accent);
-      margin: 0 auto 1.5rem;
-      display: block;
-      background-color: #0b0f14;
-    }
-
-    .card h3 {
-      margin-bottom: 0.5rem;
-      color: var(--accent);
-    }
-
-    /* ===================== */
-    /* GALLERY (aus Index 2) */
-    /* ===================== */
-
-    .gallery {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-      gap: 1rem;
-      margin-top: 2rem;
-    }
-
-    .gallery img {
-      width: 100%;
-      height: auto;
-      border-radius: 10px;
-      border: 1px solid #1f2a44;
-      filter: brightness(0.85);
-      transition: filter 0.3s ease, transform 0.3s ease;
-      display: block;
-    }
-
-    .gallery img:hover {
-      filter: brightness(1);
-      transform: scale(1.02);
-    }
-
-    .gallery-item {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-    }
-
-    .caption {
-      width: 100%;
-      text-align: center;
-      margin-top: 0.5rem;
-      color: var(--text-muted);
-    }
-
-    /* ===================== */
-    /* FOOTER (aus Index 2) */
-    /* ===================== */
-
-    footer {
-      padding: 2rem 1.5rem;
-      text-align: center;
-      background-color: #05070a;
-      border-top: 1px solid #1f2a44;
-      color: var(--text-muted);
-      font-size: 0.9rem;
-    }
-
-    footer span {
-      color: var(--accent);
-    }
-  </style>
+  <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
 
+<div class="stars"></div>
+
 <header>
-  <h1>CHIMERA<span style="color: var(--accent)">_II</span></h1>
+  <h1>CHIMERA<span>_II</span></h1>
   <p>CanSat Wettbewerb 2025/26 – Österreich</p>
 </header>
 
 <nav>
-  <a href="#">Projekt</a>
-  <a href="#">Team</a>
-  <a href="#">Primär</a>
-  <a href="#">Sekundär</a>
-  <a href="#">Galerie</a>
+  <a href="#Projekt">Projekt</a>
+  <a href="#Team">Team</a>
+  <a href="#Primär">Primär</a>
+  <a href="#Sekundär">Sekundär</a>
+  <a href="#Galerie">Galerie</a>
 </nav>
 
 <section id="countdown-section">
@@ -242,6 +48,86 @@
   </div>
 </section>
 
+<section id="Projekt">
+  <h2>Projektübersicht</h2>
+  <p>
+    Chimera_II ist unser Beitrag zum österreichischen CanSat Wettbewerb 2025/26.
+    Ziel ist es, technische Innovation, Teamarbeit und Begeisterung für Luft und Raumfahrt
+    in einem hochintegrierten Mini Satelliten zu vereinen.
+  </p>
+  <p>
+    Neben der Primärmission konzentriert sich unser Projekt stark auf eine ambitionierte
+    Sekundärmission mit drohnenähnlichem Flugsystem und bildgestützter Datenauswertung.
+  </p>
+</section>
+
+<section id="Team">
+  <h2>Das Team</h2>
+
+  <div class="card-grid">
+    <div class="card">
+      <img src="images/Member1.png" class="member-img">
+      <h3>Lukas Haller</h3>
+      <p>Schüler, 17 Jahre</p>
+      <p>Embedded Systems, Sensorik, 3D-Design</p>
+    </div>
+
+    <div class="card">
+      <img src="images/Member2v4.png" class="member-img">
+      <h3>Daniel Winkler</h3>
+      <p>Schüler, 18 Jahre</p>
+      <p>Hardware, Drohnenbau, 3D-Druck</p>
+    </div>
+
+    <div class="card">
+      <img src="images/Member3.png" class="member-img">
+      <h3>Liam Sonnleitner</h3>
+      <p>Schüler, 17 Jahre</p>
+      <p>Software, Bildverarbeitung, Elektronik</p>
+    </div>
+  </div>
+</section>
+
+<section id="Primär">
+  <h2>Primärmission</h2>
+  <p>
+    Die Primärmission ist für alle Teams identisch und gleichzeitig eine Grundvoraussetzung um am Wettbewerb teilnehmen zu können.
+  </p>
+  <p>
+    Diese besteht daraus Luftdruck, Luftfeuchtigkeit, Temperatur und Höhe (mithilfe des Luftdrucks) auszulesen,
+    und eine Funkverbindung die eine Mindestreichweite von 1km hat herzustellen.
+    Des weiteren muss ein Modell des Cansat und ein Fallschirmmodell erstellt und rechtzeitig eingereicht werden.
+  </p>
+</section>
+
+<section id="Sekundär">
+  <h2>Sekundärmission</h2>
+  <p>
+    Die Sekundärmission von Chimera_II besteht aus einem ausfahrbaren,
+    drohnenartigen Flugsystem, das sich nach dem Auswurf aus dem CanSat Gehäuse entfaltet.
+  </p>
+  <p>
+    Während des kontrollierten Abstiegs werden Bilddaten, Temperaturwerte
+    und eine Schätzung der Flughöhe erfasst und in Echtzeit zur Bodenstation übertragen.
+    Nach dem Flug erfolgt eine kartografische Auswertung der gesammelten Daten.
+  </p>
+</section>
+
+<section id="Galerie">
+  <h2>Galerie</h2>
+
+  <div class="gallery">
+    <div class="gallery-item">
+      <img src="images/Transformation.gif">
+      <p class="caption">Animation der Transformation</p>
+    </div>
+  </div>
+</section>
+
+<footer>
+  © 2026 Team <span>Chimera_II</span> | CanSat Österreich
+</footer>
+
 <script>
   var countDownDate = new Date("Apr 9, 2026 10:45:00").getTime();
 
@@ -249,15 +135,17 @@
     var now = new Date().getTime();
     var distance = countDownDate - now;
 
-    var days = Math.floor(distance / (1000 * 60 * 60 * 24));
-    var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-    var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
-    var seconds = Math.floor((distance % (1000 * 60)) / 1000);
+    document.getElementById("days").innerHTML =
+      Math.floor(distance / (1000 * 60 * 60 * 24));
 
-    document.getElementById("days").innerHTML = days;
-    document.getElementById("hours").innerHTML = hours;
-    document.getElementById("minutes").innerHTML = minutes;
-    document.getElementById("seconds").innerHTML = seconds;
+    document.getElementById("hours").innerHTML =
+      Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+
+    document.getElementById("minutes").innerHTML =
+      Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+
+    document.getElementById("seconds").innerHTML =
+      Math.floor((distance % (1000 * 60)) / 1000);
 
     if (distance < 0) {
       clearInterval(x);
@@ -265,88 +153,6 @@
     }
   }, 1000);
 </script>
-
-<!-- REST BLEIBT UNVERÄNDERT -->
-<!-- Projekt / Team / Primär / Sekundär / Galerie + Footer -->
-
-</body>
-</html>
-
-  <section id="Projekt">
-    <h2>Projektübersicht</h2>
-    <p>
-      Chimera_II ist unser Beitrag zum österreichischen CanSat Wettbewerb 2025/26.
-      Ziel ist es, technische Innovation, Teamarbeit und Begeisterung für Luft und Raumfahrt
-      in einem hochintegrierten Mini Satelliten zu vereinen.
-    </p>
-    <p>
-      Neben der Primärmission konzentriert sich unser Projekt stark auf eine ambitionierte
-      Sekundärmission mit drohnenähnlichem Flugsystem und bildgestützter Datenauswertung.
-    </p>
-  </section>
-
-  <section id="Team">
-    <h2>Das Team</h2>
-    <div class="card-grid">
-      <div class="card">
-        <img src="images/Member1.png" alt="Lukas Haller" class="member-img">
-        <h3>Lukas Haller</h3>
-        <p>Schüler, 17 Jahre</p>
-        <p>Embedded Systems, Sensorik, 3D-Design</p>
-      </div>
-      <div class="card">
-        <img src="images/Member2v4.png" alt="Daniel Winkler" class="member-img">
-        <h3>Daniel Winkler</h3>
-        <p>Schüler, 18 Jahre</p>
-        <p>Hardware, Drohnenbau, 3D-Druck</p>
-      </div>
-      <div class="card">
-        <img src="images/Member3.png" alt="Liam Sonnleitner" class="member-img">
-        <h3>Liam Sonnleitner</h3>
-        <p>Schüler, 17 Jahre</p>
-        <p>Software, Bildverarbeitung, Elektronik</p>
-      </div>
-    </div>
-  </section>
-
-  <section id="Primär">
-    <h2>Primärmission</h2>
-    <p>
-      Die Primärmission ist für alle Teams identisch und gleichzeitig eine Grundvoraussetzung um am Wettbewerb teilnehmen zu können.
-    </p>
-    <p>
-      Diese besteht daraus Luftdruck, Luftfeuchtigkeit, Temperatur und Höhe (mithilfe des Luftdrucks) auszulesen,
-      und eine Funkverbindung die eine Mindestreichweite von 1km hat herzustellen.
-      Des weiteren muss ein Modell des Cansat und ein Fallschirmmodell erstellt und rechtzeitig eingereicht werden.
-    </p>
-  </section>
-
-  <section id="Sekundär">
-    <h2>Sekundärmission</h2>
-    <p>
-      Die Sekundärmission von Chimera_II besteht aus einem ausfahrbaren,
-      drohnenartigen Flugsystem, das sich nach dem Auswurf aus dem CanSat Gehäuse entfaltet.
-    </p>
-    <p>
-      Während des kontrollierten Abstiegs werden Bilddaten, Temperaturwerte
-      und eine Schätzung der Flughöhe erfasst und in Echtzeit zur Bodenstation übertragen.
-      Nach dem Flug erfolgt eine kartografische Auswertung der gesammelten Daten.
-    </p>
-  </section>
-
-  <section id="Galerie">
-    <h2>Galerie</h2>
-    <p>Fotos und Videos unseres Cansat und unserer Prototypen.</p>
-    <div class="gallery"> 
-      <div class="gallery-item"> 
-        <img src="images/Transformation.gif" alt="Chimera II Rendering"> <p class="caption">Animation der Transformation</p>
-      </div>
-    </div>
-  </section>
-
-  <footer>
-    <p>© 2026 Team <span>Chimera_II</span> | CanSat Österreich</p>
-  </footer>
 
 </body>
 </html>

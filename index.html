@@ -1,156 +1,122 @@
-/* =========================
-   🌌 SPACE BACKGROUND UPGRADE
-   ========================= */
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Chimera_II | Mission Control</title>
+  <link rel="stylesheet" href="style.css"/>
+</head>
 
-body {
-  position: relative;
-  overflow-x: hidden;
-}
+<body>
 
-/* animated starfield */
-body::before {
-  content: "";
-  position: fixed;
-  inset: 0;
-  background:
-    radial-gradient(2px 2px at 10px 20px, #fff, transparent),
-    radial-gradient(1px 1px at 200px 100px, rgba(79,163,255,0.8), transparent),
-    radial-gradient(1px 1px at 300px 250px, rgba(255,255,255,0.5), transparent);
-  background-size: 400px 400px;
-  animation: starMove 160s linear infinite;
-  z-index: -2;
-  opacity: 0.35;
-}
+<header>
+  <h1>CHIMERA <span>_II</span></h1>
+  <p>CanSat Wettbewerb 2025/26 – Österreich</p>
+</header>
 
-@keyframes starMove {
-  from { transform: translateY(0); }
-  to { transform: translateY(-1500px); }
-}
+<nav>
+  <a href="#projekt">Projekt</a>
+  <a href="#team">Team</a>
+  <a href="#primaer">Primär</a>
+  <a href="#sekundaer">Sekundär</a>
+  <a href="#galerie">Galerie</a>
+</nav>
 
-/* soft glow layer */
-body::after {
-  content: "";
-  position: fixed;
-  inset: 0;
-  background: radial-gradient(circle at top, rgba(79,163,255,0.12), transparent 60%);
-  z-index: -1;
-}
+<!-- COUNTDOWN -->
+<section id="countdown">
+  <h2>TIME TO LAUNCH</h2>
 
-/* =========================
-   🚀 HEADER FUTURISTIC GLOW
-   ========================= */
+  <div class="countdown">
+    <div class="box"><span id="days">0</span><p>Tage</p></div>
+    <div class="box"><span id="hours">0</span><p>Stunden</p></div>
+    <div class="box"><span id="minutes">0</span><p>Minuten</p></div>
+    <div class="box"><span id="seconds">0</span><p>Sekunden</p></div>
+  </div>
+</section>
 
-header {
-  text-shadow: 0 0 20px rgba(79,163,255,0.25);
-  position: relative;
-}
+<!-- PROJEKT -->
+<section id="projekt">
+  <h2>Projektübersicht</h2>
+  <p>
+    Chimera_II ist unser Beitrag zum österreichischen CanSat Wettbewerb 2025/26.
+    Ziel ist es, Raumfahrttechnologie in einem kompakten Satelliten zu vereinen.
+  </p>
+</section>
 
-/* animated underline */
-header h1::after {
-  content: "";
-  display: block;
-  width: 140px;
-  height: 2px;
-  margin: 10px auto 0;
-  background: linear-gradient(90deg, transparent, #4fa3ff, transparent);
-  animation: lineGlow 3s infinite;
-}
+<!-- TEAM -->
+<section id="team">
+  <h2>Team</h2>
 
-@keyframes lineGlow {
-  0% { transform: scaleX(0.6); opacity: 0.4; }
-  50% { transform: scaleX(1); opacity: 1; }
-  100% { transform: scaleX(0.6); opacity: 0.4; }
-}
+  <div class="grid">
+    <div class="card">
+      <img src="images/Member1.png" alt="Lukas Haller">
+      <h3>Lukas Haller</h3>
+      <p>Embedded Systems, Sensorik</p>
+    </div>
 
-/* =========================
-   🚀 NAV HUD STYLE
-   ========================= */
+    <div class="card">
+      <img src="images/Member2v4.png" alt="Daniel Winkler">
+      <h3>Daniel Winkler</h3>
+      <p>Hardware, Drohnenbau</p>
+    </div>
 
-nav {
-  border-bottom: 1px solid rgba(79,163,255,0.2);
-  backdrop-filter: blur(10px);
-}
+    <div class="card">
+      <img src="images/Member3.png" alt="Liam Sonnleitner">
+      <h3>Liam Sonnleitner</h3>
+      <p>Software, Bildverarbeitung</p>
+    </div>
+  </div>
+</section>
 
-nav a {
-  position: relative;
-  padding: 0.3rem 0.6rem;
-  transition: 0.3s;
-}
+<!-- PRIMÄR -->
+<section id="primaer">
+  <h2>Primärmission</h2>
+  <p>
+    Messung von Temperatur, Luftdruck und Höhe sowie stabile Funkverbindung über 1km.
+  </p>
+</section>
 
-nav a:hover {
-  color: #4fa3ff;
-  text-shadow: 0 0 10px rgba(79,163,255,0.4);
-}
+<!-- SEKUNDÄR -->
+<section id="sekundaer">
+  <h2>Sekundärmission</h2>
+  <p>
+    Ausfahrbares Flugsystem mit Bildanalyse und Echtzeit-Datenübertragung.
+  </p>
+</section>
 
-/* underline animation */
-nav a::after {
-  content: "";
-  position: absolute;
-  bottom: -4px;
-  left: 0;
-  width: 100%;
-  height: 1px;
-  background: #4fa3ff;
-  transform: scaleX(0);
-  transition: 0.3s;
-}
+<!-- GALERIE -->
+<section id="galerie">
+  <h2>Galerie</h2>
 
-nav a:hover::after {
-  transform: scaleX(1);
-}
+  <div class="gallery">
+    <div class="gallery-item">
+      <img src="images/Transformation.gif" alt="Transformation">
+      <p>Animation der Transformation</p>
+    </div>
+  </div>
+</section>
 
-/* =========================
-   🚀 SECTION FLOAT IN
-   ========================= */
+<footer>
+  <p>© 2026 Team Chimera_II | CanSat Österreich</p>
+</footer>
 
-section {
-  animation: fadeInUp 0.8s ease both;
-}
+<script>
+  const countDownDate = new Date("Apr 9, 2026 10:45:00").getTime();
 
-@keyframes fadeInUp {
-  from {
-    opacity: 0;
-    transform: translateY(20px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
+  setInterval(() => {
+    const now = new Date().getTime();
+    const distance = countDownDate - now;
 
-/* =========================
-   🚀 GLOBAL GLOW HEADINGS
-   ========================= */
+    document.getElementById("days").innerText = Math.floor(distance / (1000*60*60*24));
+    document.getElementById("hours").innerText = Math.floor((distance % (1000*60*60*24))/(1000*60*60));
+    document.getElementById("minutes").innerText = Math.floor((distance % (1000*60*60))/(1000*60));
+    document.getElementById("seconds").innerText = Math.floor((distance % (1000*60))/1000);
 
-h2 {
-  text-shadow: 0 0 12px rgba(79,163,255,0.15);
-}
+    if (distance < 0) {
+      document.querySelector(".countdown").innerHTML = "🚀 LAUNCHED";
+    }
+  }, 1000);
+</script>
 
-/* =========================
-   🚀 EXTRA SPACE DEPTH
-   ========================= */
-
-.time-box,
-.card {
-  backdrop-filter: blur(14px);
-}
-
-/* subtle hover glow everywhere */
-.card:hover,
-.time-box:hover {
-  box-shadow: 0 0 30px rgba(79,163,255,0.25);
-}
-
-/* =========================
-   🚀 GALLERY UPGRADE GLOW
-   ========================= */
-
-.gallery img {
-  transition: 0.3s ease;
-}
-
-.gallery img:hover {
-  transform: scale(1.03);
-  filter: brightness(1.1);
-  box-shadow: 0 0 25px rgba(79,163,255,0.3);
-}
+</body>
+</html>

@@ -1,9 +1,9 @@
 <!DOCTYPE html>
 <html lang="de">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Chimera_II | CanSat 2026</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Chimera_II | Countdown</title>
 
   <style>
     :root {
@@ -63,13 +63,42 @@
       text-align: left;
     }
 
-    /* Countdown */
-    #countdown {
+    /* Countdown Layout */
+    .countdown-wrapper {
+      display: flex;
+      justify-content: center;
+      gap: 2rem;
+      margin-top: 2rem;
+      flex-wrap: wrap;
+    }
+
+    .time-box {
+      background: var(--bg-secondary);
+      border: 1px solid #1f2a44;
+      border-radius: 12px;
+      padding: 1.5rem 2rem;
+      min-width: 100px;
+      text-align: center;
+      box-shadow: 0 10px 25px rgba(0,0,0,0.5);
+      transition: transform 0.3s ease;
+    }
+
+    .time-box:hover {
+      transform: translateY(-5px);
+    }
+
+    .time-box span {
+      display: block;
       font-size: 2.5rem;
       font-weight: bold;
-      margin-top: 1rem;
       color: var(--accent);
-      letter-spacing: 0.1em;
+    }
+
+    .time-box p {
+      margin-top: 0.5rem;
+      color: var(--text-muted);
+      font-size: 0.9rem;
+      letter-spacing: 0.05em;
     }
   </style>
 </head>
@@ -82,16 +111,34 @@
 </header>
 
 <nav>
-  <a href="#projekt">Projekt</a>
-  <a href="#team">Team</a>
-  <a href="#primär">Primär</a>
-  <a href="#sekundär">Sekundär</a>
-  <a href="#galerie">Galerie</a>
+  <a href="#">Projekt</a>
+  <a href="#">Team</a>
+  <a href="#">Primär</a>
+  <a href="#">Sekundär</a>
+  <a href="#">Galerie</a>
 </nav>
 
 <section id="countdown-section">
   <h2>Time Till Launch</h2>
-  <div id="countdown"></div>
+
+  <div class="countdown-wrapper">
+    <div class="time-box">
+      <span id="days">0</span>
+      <p>Tage</p>
+    </div>
+    <div class="time-box">
+      <span id="hours">0</span>
+      <p>Stunden</p>
+    </div>
+    <div class="time-box">
+      <span id="minutes">0</span>
+      <p>Minuten</p>
+    </div>
+    <div class="time-box">
+      <span id="seconds">0</span>
+      <p>Sekunden</p>
+    </div>
+  </div>
 </section>
 
 <script>
@@ -106,12 +153,14 @@
     var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
     var seconds = Math.floor((distance % (1000 * 60)) / 1000);
 
-    document.getElementById("countdown").innerHTML =
-      days + "T " + hours + "h " + minutes + "m " + seconds + "s";
+    document.getElementById("days").innerHTML = days;
+    document.getElementById("hours").innerHTML = hours;
+    document.getElementById("minutes").innerHTML = minutes;
+    document.getElementById("seconds").innerHTML = seconds;
 
     if (distance < 0) {
       clearInterval(x);
-      document.getElementById("countdown").innerHTML = "EXPIRED";
+      document.querySelector(".countdown-wrapper").innerHTML = "🚀 LAUNCHED";
     }
   }, 1000);
 </script>

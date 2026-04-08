@@ -1,158 +1,156 @@
-<!DOCTYPE html>
-<html lang="de">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Chimera_II | Countdown</title>
+/* =========================
+   🌌 SPACE BACKGROUND UPGRADE
+   ========================= */
 
-  <link rel="stylesheet" href="style.css">
-</head>
+body {
+  position: relative;
+  overflow-x: hidden;
+}
 
-<body>
+/* animated starfield */
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  background:
+    radial-gradient(2px 2px at 10px 20px, #fff, transparent),
+    radial-gradient(1px 1px at 200px 100px, rgba(79,163,255,0.8), transparent),
+    radial-gradient(1px 1px at 300px 250px, rgba(255,255,255,0.5), transparent);
+  background-size: 400px 400px;
+  animation: starMove 160s linear infinite;
+  z-index: -2;
+  opacity: 0.35;
+}
 
-<div class="stars"></div>
+@keyframes starMove {
+  from { transform: translateY(0); }
+  to { transform: translateY(-1500px); }
+}
 
-<header>
-  <h1>CHIMERA<span>_II</span></h1>
-  <p>CanSat Wettbewerb 2025/26 – Österreich</p>
-</header>
+/* soft glow layer */
+body::after {
+  content: "";
+  position: fixed;
+  inset: 0;
+  background: radial-gradient(circle at top, rgba(79,163,255,0.12), transparent 60%);
+  z-index: -1;
+}
 
-<nav>
-  <a href="#Projekt">Projekt</a>
-  <a href="#Team">Team</a>
-  <a href="#Primär">Primär</a>
-  <a href="#Sekundär">Sekundär</a>
-  <a href="#Galerie">Galerie</a>
-</nav>
+/* =========================
+   🚀 HEADER FUTURISTIC GLOW
+   ========================= */
 
-<section id="countdown-section">
-  <h2>Time Till Launch</h2>
+header {
+  text-shadow: 0 0 20px rgba(79,163,255,0.25);
+  position: relative;
+}
 
-  <div class="countdown-wrapper">
-    <div class="time-box">
-      <span id="days">0</span>
-      <p>Tage</p>
-    </div>
-    <div class="time-box">
-      <span id="hours">0</span>
-      <p>Stunden</p>
-    </div>
-    <div class="time-box">
-      <span id="minutes">0</span>
-      <p>Minuten</p>
-    </div>
-    <div class="time-box">
-      <span id="seconds">0</span>
-      <p>Sekunden</p>
-    </div>
-  </div>
-</section>
+/* animated underline */
+header h1::after {
+  content: "";
+  display: block;
+  width: 140px;
+  height: 2px;
+  margin: 10px auto 0;
+  background: linear-gradient(90deg, transparent, #4fa3ff, transparent);
+  animation: lineGlow 3s infinite;
+}
 
-<section id="Projekt">
-  <h2>Projektübersicht</h2>
-  <p>
-    Chimera_II ist unser Beitrag zum österreichischen CanSat Wettbewerb 2025/26.
-    Ziel ist es, technische Innovation, Teamarbeit und Begeisterung für Luft und Raumfahrt
-    in einem hochintegrierten Mini Satelliten zu vereinen.
-  </p>
-  <p>
-    Neben der Primärmission konzentriert sich unser Projekt stark auf eine ambitionierte
-    Sekundärmission mit drohnenähnlichem Flugsystem und bildgestützter Datenauswertung.
-  </p>
-</section>
+@keyframes lineGlow {
+  0% { transform: scaleX(0.6); opacity: 0.4; }
+  50% { transform: scaleX(1); opacity: 1; }
+  100% { transform: scaleX(0.6); opacity: 0.4; }
+}
 
-<section id="Team">
-  <h2>Das Team</h2>
+/* =========================
+   🚀 NAV HUD STYLE
+   ========================= */
 
-  <div class="card-grid">
-    <div class="card">
-      <img src="images/Member1.png" class="member-img">
-      <h3>Lukas Haller</h3>
-      <p>Schüler, 17 Jahre</p>
-      <p>Embedded Systems, Sensorik, 3D-Design</p>
-    </div>
+nav {
+  border-bottom: 1px solid rgba(79,163,255,0.2);
+  backdrop-filter: blur(10px);
+}
 
-    <div class="card">
-      <img src="images/Member2v4.png" class="member-img">
-      <h3>Daniel Winkler</h3>
-      <p>Schüler, 18 Jahre</p>
-      <p>Hardware, Drohnenbau, 3D-Druck</p>
-    </div>
+nav a {
+  position: relative;
+  padding: 0.3rem 0.6rem;
+  transition: 0.3s;
+}
 
-    <div class="card">
-      <img src="images/Member3.png" class="member-img">
-      <h3>Liam Sonnleitner</h3>
-      <p>Schüler, 17 Jahre</p>
-      <p>Software, Bildverarbeitung, Elektronik</p>
-    </div>
-  </div>
-</section>
+nav a:hover {
+  color: #4fa3ff;
+  text-shadow: 0 0 10px rgba(79,163,255,0.4);
+}
 
-<section id="Primär">
-  <h2>Primärmission</h2>
-  <p>
-    Die Primärmission ist für alle Teams identisch und gleichzeitig eine Grundvoraussetzung um am Wettbewerb teilnehmen zu können.
-  </p>
-  <p>
-    Diese besteht daraus Luftdruck, Luftfeuchtigkeit, Temperatur und Höhe (mithilfe des Luftdrucks) auszulesen,
-    und eine Funkverbindung die eine Mindestreichweite von 1km hat herzustellen.
-    Des weiteren muss ein Modell des Cansat und ein Fallschirmmodell erstellt und rechtzeitig eingereicht werden.
-  </p>
-</section>
+/* underline animation */
+nav a::after {
+  content: "";
+  position: absolute;
+  bottom: -4px;
+  left: 0;
+  width: 100%;
+  height: 1px;
+  background: #4fa3ff;
+  transform: scaleX(0);
+  transition: 0.3s;
+}
 
-<section id="Sekundär">
-  <h2>Sekundärmission</h2>
-  <p>
-    Die Sekundärmission von Chimera_II besteht aus einem ausfahrbaren,
-    drohnenartigen Flugsystem, das sich nach dem Auswurf aus dem CanSat Gehäuse entfaltet.
-  </p>
-  <p>
-    Während des kontrollierten Abstiegs werden Bilddaten, Temperaturwerte
-    und eine Schätzung der Flughöhe erfasst und in Echtzeit zur Bodenstation übertragen.
-    Nach dem Flug erfolgt eine kartografische Auswertung der gesammelten Daten.
-  </p>
-</section>
+nav a:hover::after {
+  transform: scaleX(1);
+}
 
-<section id="Galerie">
-  <h2>Galerie</h2>
+/* =========================
+   🚀 SECTION FLOAT IN
+   ========================= */
 
-  <div class="gallery">
-    <div class="gallery-item">
-      <img src="images/Transformation.gif">
-      <p class="caption">Animation der Transformation</p>
-    </div>
-  </div>
-</section>
+section {
+  animation: fadeInUp 0.8s ease both;
+}
 
-<footer>
-  © 2026 Team <span>Chimera_II</span> | CanSat Österreich
-</footer>
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
 
-<script>
-  var countDownDate = new Date("Apr 9, 2026 10:45:00").getTime();
+/* =========================
+   🚀 GLOBAL GLOW HEADINGS
+   ========================= */
 
-  var x = setInterval(function () {
-    var now = new Date().getTime();
-    var distance = countDownDate - now;
+h2 {
+  text-shadow: 0 0 12px rgba(79,163,255,0.15);
+}
 
-    document.getElementById("days").innerHTML =
-      Math.floor(distance / (1000 * 60 * 60 * 24));
+/* =========================
+   🚀 EXTRA SPACE DEPTH
+   ========================= */
 
-    document.getElementById("hours").innerHTML =
-      Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+.time-box,
+.card {
+  backdrop-filter: blur(14px);
+}
 
-    document.getElementById("minutes").innerHTML =
-      Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+/* subtle hover glow everywhere */
+.card:hover,
+.time-box:hover {
+  box-shadow: 0 0 30px rgba(79,163,255,0.25);
+}
 
-    document.getElementById("seconds").innerHTML =
-      Math.floor((distance % (1000 * 60)) / 1000);
+/* =========================
+   🚀 GALLERY UPGRADE GLOW
+   ========================= */
 
-    if (distance < 0) {
-      clearInterval(x);
-      document.querySelector(".countdown-wrapper").innerHTML = "🚀 LAUNCHED";
-    }
-  }, 1000);
-</script>
+.gallery img {
+  transition: 0.3s ease;
+}
 
-</body>
-</html>
+.gallery img:hover {
+  transform: scale(1.03);
+  filter: brightness(1.1);
+  box-shadow: 0 0 25px rgba(79,163,255,0.3);
+}

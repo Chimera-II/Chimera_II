@@ -139,3 +139,30 @@ h1 {
   font-size: 0.85rem;
 }
 
+.gallery-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  opacity: 0;
+  transform: translateY(20px);
+  animation: fadeUp 0.8s ease forwards;
+}
+
+/* leichte Verzögerung für Effekt */
+.gallery-item:nth-child(1) {
+  animation-delay: 0.2s;
+}
+
+@keyframes fadeUp {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.gallery img:hover {
+  filter: brightness(1.1);
+  transform: scale(1.03);
+  box-shadow: 0 10px 25px rgba(79, 163, 255, 0.3);
+}

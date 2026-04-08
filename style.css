@@ -1,1 +1,47 @@
-.member-img {width: 100px;      height: 100px;      object-fit: cover;      border-radius: 50%;      border: 2px solid var(--accent);      margin-bottom: 1rem;      display: block;      margin-left: auto;      margin-right: auto;/* Gesamtes Layout zentrieren */body {    font-family: Arial, sans-serif;    text-align: center;    height: 100vh; /* Volle Höhe des Viewports */    display: flex;    justify-content: center; /* Horizontal zentrieren */    align-items: center; /* Vertikal zentrieren */    margin: 0;    background-color: #1d1d1d; /* Hintergrundfarbe für besseres Aussehen */}/* Countdown Container */#countdown-container {    background-color: #f0f0f0;    padding: 50px;    border-radius: 10px;    display: inline-block;    text-align: center;    margin-top: 50px;}/* Countdown Text */#countdown {    font-size: 2em;    font-weight: bold;    margin-top: 20px;    color: #333;}/* H1-Styling */h1 {    font-size: 2.5em;    font-weight: bold;    color: #fff;}    }
+.member-img {
+  width: 100px;
+  height: 100px;
+  object-fit: cover;
+  border-radius: 50%;
+  border: 2px solid var(--accent);
+  margin-bottom: 1rem;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* Gesamtes Layout zentrieren */
+body {
+  font-family: Arial, sans-serif;
+  text-align: center;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0;
+  background-color: #1d1d1d;
+}
+
+/* Countdown Container */
+#countdown-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  margin: 50px auto;
+}
+/* Countdown Text */
+#countdown {
+  font-size: 2em;
+  font-weight: bold;
+  margin-top: 20px;
+  color: #333;
+}
+
+/* H1-Styling */
+h1 {
+  font-size: 2.5em;
+  font-weight: bold;
+  color: #fff;
+}
